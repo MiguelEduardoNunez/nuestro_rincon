@@ -1,69 +1,144 @@
-import Image from "next/image";
+const photos = [
+  {
+    src: "/photos/photo-1.jpeg",
+    text: "Un momento más que quiero guardar para siempre.",
+    className: "photo-large",
+  },
+  {
+    src: "/photos/photo-2.jpeg",
+    text: "Tú haces especial hasta el momento más sencillo.",
+    className: "photo-small",
+  },
+  {
+    src: "/photos/photo-3.jpeg",
+    text: "Nosotros, tal y como somos.",
+    className: "photo-small",
+  },
+  {
+    src: "/photos/photo-4.jpeg",
+    text: "La persona que hace mis días un poquito más bonitos.",
+    className: "photo-tall",
+  },
+  {
+    src: "/photos/photo-5.jpeg",
+    text: "Hay recuerdos que quisiera repetir una y otra vez.",
+    className: "photo-square",
+  },
+  {
+    src: "/photos/photo-6.jpeg",
+    text: "Incluso en los días oscuros, contigo siempre hay luz.",
+    className: "photo-tall",
+  },
+  {
+    src: "/photos/photo-7.jpeg",
+    text: "Y aquí estamos nosotros.",
+    className: "photo-wide",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <main>
+      {/* HERO */}
+
+      <section className="hero">
+        <div className="hero-overlay">
+          <p className="eyebrow">PARA EL AMOR DE MI VIDA</p>
+
+          <h1>
+            Nuestra
+            <span> historia</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="hero-text">
+            Entre tantas personas, tantos caminos y tantas casualidades,
+            tuve la suerte de encontrarte a ti.
+          </p>
+
+          <a href="#historia" className="hero-button">
+            Conoce nuestra historia ↓
+          </a>
+        </div>
+      </section>
+
+      {/* HISTORIA */}
+
+      <section id="historia" className="story">
+        <p className="section-label">NOSOTROS</p>
+
+        <h2>
+          Una historia que
+          <span> apenas comienza</span>
+        </h2>
+
+        <p className="story-text">
+          Hay personas que llegan a nuestra vida sin avisar y terminan
+          convirtiéndose en una de las partes más bonitas de ella.
+          Tú eres esa persona para mí.
+        </p>
+      </section>
+
+      {/* FRASE */}
+
+      <section className="quote-section">
+        <p>
+          “De todas las casualidades de mi vida,
+          <br />
+          tú eres mi favorita.”
+        </p>
+      </section>
+
+      {/* GALERÍA */}
+
+      <section className="gallery-section">
+        <div className="gallery-heading">
+          <p className="section-label">NUESTROS RECUERDOS</p>
+
+          <h2>
+            Momentos que
+            <span> quiero conservar</span>
+          </h2>
+
+          <p>
+            Porque algún día miraremos atrás y nos daremos cuenta
+            de que estos eran los momentos que realmente importaban.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="gallery">
+          {photos.map((photo, index) => (
+            <article
+              className={`gallery-item ${photo.className}`}
+              key={photo.src}
+            >
+              <img
+                src={photo.src}
+                alt={`Recuerdo ${index + 1}`}
+              />
+
+              <div className="photo-caption">
+                <span>{photo.text}</span>
+              </div>
+            </article>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* MENSAJE */}
+
+      <section className="message">
+        <div className="message-card">
+          <p className="quote">“</p>
+
+          <p>
+            Gracias por aparecer en mi vida, por hacerme sonreír,
+            por acompañarme y por convertir tantos momentos normales
+            en recuerdos que quiero guardar para siempre.
+          </p>
+
+          <span>— Con todo mi amor</span>
+        </div>
+      </section>
+    </main>
   );
 }

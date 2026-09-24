@@ -1,26 +1,449 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fff8f8;
+  --foreground: #2d2024;
+  --rose: #c85c78;
+  --rose-dark: #8f354f;
+  --cream: #fffaf5;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero {
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(20, 10, 15, 0.15),
+      rgba(20, 10, 15, 0.65)
+    ),
+    url("/photos/hero.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: white;
+
+  position: relative;
+}
+
+.hero-overlay {
+  width: min(900px, 90%);
+  padding: 40px 20px;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  margin-bottom: 25px;
+  opacity: 0.85;
+}
+
+.hero h1 {
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 0.9;
+  font-weight: 300;
+  margin: 0;
+}
+
+.hero h1 span {
+  display: block;
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.hero-text {
+  max-width: 600px;
+  margin: 35px auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+.hero-button {
+  display: inline-block;
+
+  padding: 14px 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+
+  color: white;
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.hero-button:hover {
+  background: white;
+  color: var(--rose-dark);
+  transform: translateY(-3px);
+}
+
+/* HISTORIA */
+
+.story {
+  min-height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 100px 20px;
+
+  background: var(--cream);
+}
+
+.section-label {
+  color: var(--rose);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  font-weight: bold;
+}
+
+.story h2 {
+  max-width: 800px;
+
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+
+  line-height: 1;
+
+  margin: 20px 0 35px;
+}
+
+.story h2 span {
+  display: block;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+
+  color: var(--rose);
+}
+
+.story-text {
+  max-width: 650px;
+
+  font-size: 1.1rem;
+  line-height: 2;
+
+  color: #705d63;
+}
+
+/* MENSAJE */
+
+.message {
+  min-height: 70vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 20px;
+
+  background: #f4e3e7;
+}
+
+.message-card {
+  max-width: 750px;
+
+  background: rgba(255, 255, 255, 0.65);
+
+  padding: 70px 60px;
+
+  text-align: center;
+
+  border-radius: 4px;
+
+  box-shadow: 0 30px 80px rgba(80, 30, 50, 0.08);
+}
+
+.message-card .quote {
+  font-family: Georgia, serif;
+
+  font-size: 6rem;
+  line-height: 0.5;
+
+  color: var(--rose);
+
+  margin: 0 0 40px;
+}
+
+.message-card p:not(.quote) {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(1.3rem, 3vw, 2rem);
+
+  line-height: 1.7;
+
+  color: #4b363d;
+}
+
+.message-card span {
+  display: block;
+
+  margin-top: 35px;
+
+  color: var(--rose-dark);
+
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+  }
+
+  .message-card {
+    padding: 50px 25px;
+  }
+}
+/* =========================
+   FRASE
+========================= */
+
+.quote-section {
+  min-height: 55vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 20px;
+
+  text-align: center;
+
+  background: #2d2024;
+  color: #fff8f8;
+}
+
+.quote-section p {
+  max-width: 900px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(2rem, 5vw, 4.5rem);
+
+  line-height: 1.3;
+
+  font-style: italic;
+}
+
+/* =========================
+   GALERÍA
+========================= */
+
+.gallery-section {
+  padding: 120px 6%;
+
+  background: #fff8f8;
+}
+
+.gallery-heading {
+  max-width: 750px;
+
+  margin: 0 auto 80px;
+
+  text-align: center;
+}
+
+.gallery-heading h2 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+
+  line-height: 1;
+
+  font-weight: 300;
+
+  margin: 20px 0 30px;
+}
+
+.gallery-heading h2 span {
+  display: block;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-style: italic;
+
+  color: var(--rose);
+}
+
+.gallery-heading > p:last-child {
+  color: #705d63;
+
+  line-height: 1.8;
+
+  max-width: 600px;
+
+  margin: auto;
+}
+
+/* GRID */
+
+.gallery {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(12, 1fr);
+
+  gap: 22px;
+}
+
+.gallery-item {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 3px;
+
+  background: #eee;
+
+  min-height: 350px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.7s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* POSICIONES */
+
+.photo-large {
+  grid-column: span 7;
+  height: 650px;
+}
+
+.photo-small {
+  grid-column: span 5;
+  height: 610px;
+}
+
+.photo-tall {
+  grid-column: span 5;
+  height: 550px;
+}
+
+.photo-square {
+  grid-column: span 7;
+  height: 550px;
+}
+
+.photo-wide {
+  grid-column: span 12;
+  height: 600px;
+}
+
+/* TEXTO SOBRE FOTO */
+
+.photo-caption {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 70px 30px 25px;
+
+  background: linear-gradient(
+    transparent,
+    rgba(20, 10, 15, 0.75)
+  );
+
+  color: white;
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.gallery-item:hover .photo-caption {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.photo-caption span {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 1.1rem;
+
+  font-style: italic;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .gallery {
+    display: flex;
+
+    flex-direction: column;
+  }
+
+  .gallery-item,
+  .photo-large,
+  .photo-small,
+  .photo-tall,
+  .photo-square,
+  .photo-wide {
+    width: 100%;
+
+    height: 450px;
+  }
+
+  .photo-caption {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+  .gallery-section {
+    padding: 80px 20px;
+  }
 }
