@@ -23,6 +23,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+img {
+  max-width: 100%;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
 .hero {
   min-height: 100vh;
 
@@ -42,6 +51,7 @@ body {
   justify-content: center;
 
   text-align: center;
+
   color: white;
 
   position: relative;
@@ -49,34 +59,47 @@ body {
 
 .hero-overlay {
   width: min(900px, 90%);
+
   padding: 40px 20px;
 }
 
 .eyebrow {
   font-size: 0.75rem;
+
   letter-spacing: 0.35em;
+
   margin-bottom: 25px;
+
   opacity: 0.85;
 }
 
 .hero h1 {
   font-size: clamp(4rem, 10vw, 8rem);
+
   line-height: 0.9;
+
   font-weight: 300;
+
   margin: 0;
 }
 
 .hero h1 span {
   display: block;
+
   font-style: italic;
+
   font-family: Georgia, "Times New Roman", serif;
 }
 
 .hero-text {
   max-width: 600px;
+
   margin: 35px auto;
+
   font-size: 1.1rem;
+
   line-height: 1.8;
+
   opacity: 0.9;
 }
 
@@ -86,9 +109,11 @@ body {
   padding: 14px 28px;
 
   border: 1px solid rgba(255, 255, 255, 0.6);
+
   border-radius: 999px;
 
   color: white;
+
   text-decoration: none;
 
   transition:
@@ -99,18 +124,26 @@ body {
 
 .hero-button:hover {
   background: white;
+
   color: var(--rose-dark);
+
   transform: translateY(-3px);
 }
 
-/* HISTORIA */
+
+/* =====================================================
+   HISTORIA / INTRODUCCIÓN
+===================================================== */
 
 .story {
   min-height: 80vh;
 
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
+
   align-items: center;
 
   text-align: center;
@@ -122,8 +155,11 @@ body {
 
 .section-label {
   color: var(--rose);
+
   font-size: 0.7rem;
+
   letter-spacing: 0.3em;
+
   font-weight: bold;
 }
 
@@ -131,6 +167,7 @@ body {
   max-width: 800px;
 
   font-size: clamp(2.5rem, 6vw, 5rem);
+
   font-weight: 300;
 
   line-height: 1;
@@ -142,6 +179,7 @@ body {
   display: block;
 
   font-family: Georgia, "Times New Roman", serif;
+
   font-style: italic;
 
   color: var(--rose);
@@ -151,93 +189,319 @@ body {
   max-width: 650px;
 
   font-size: 1.1rem;
+
   line-height: 2;
 
   color: #705d63;
 }
 
-/* MENSAJE */
 
-.message {
-  min-height: 70vh;
+/* =====================================================
+   NUESTRA HISTORIA
+===================================================== */
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.our-story {
+  padding: 140px 6% 120px;
 
-  padding: 80px 20px;
-
-  background: #f4e3e7;
+  background: #fffaf5;
 }
 
-.message-card {
-  max-width: 750px;
+.story-heading {
+  max-width: 850px;
 
-  background: rgba(255, 255, 255, 0.65);
-
-  padding: 70px 60px;
+  margin: 0 auto 120px;
 
   text-align: center;
-
-  border-radius: 4px;
-
-  box-shadow: 0 30px 80px rgba(80, 30, 50, 0.08);
 }
 
-.message-card .quote {
-  font-family: Georgia, serif;
+.story-heading h2 {
+  font-size: clamp(3rem, 7vw, 6rem);
 
-  font-size: 6rem;
-  line-height: 0.5;
+  line-height: 0.95;
 
-  color: var(--rose);
+  font-weight: 300;
 
-  margin: 0 0 40px;
+  margin: 20px 0 0;
 }
 
-.message-card p:not(.quote) {
-  font-family: Georgia, "Times New Roman", serif;
-
-  font-size: clamp(1.3rem, 3vw, 2rem);
-
-  line-height: 1.7;
-
-  color: #4b363d;
-}
-
-.message-card span {
+.story-heading h2 span {
   display: block;
 
-  margin-top: 35px;
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-style: italic;
+
+  color: var(--rose);
+}
+
+
+/* =====================================================
+   TIMELINE
+===================================================== */
+
+.story-timeline {
+  position: relative;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+
+/* Línea central */
+
+.story-timeline::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  bottom: 0;
+
+  left: 50%;
+
+  width: 1px;
+
+  background: #e5cbd2;
+
+  transform: translateX(-50%);
+}
+
+
+/* =====================================================
+   CAPÍTULOS
+===================================================== */
+
+.story-chapter {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 100px;
+
+  align-items: center;
+
+  min-height: 650px;
+
+  margin-bottom: 100px;
+}
+
+
+/* Imagen izquierda */
+
+.story-chapter.left .chapter-image {
+  grid-column: 1;
+}
+
+.story-chapter.left .chapter-content {
+  grid-column: 2;
+}
+
+
+/* Imagen derecha */
+
+.story-chapter.right .chapter-image {
+  grid-column: 2;
+
+  grid-row: 1;
+}
+
+.story-chapter.right .chapter-content {
+  grid-column: 1;
+
+  grid-row: 1;
+}
+
+
+/* =====================================================
+   IMÁGENES DE HISTORIA
+===================================================== */
+
+.chapter-image {
+  height: 620px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 30px 80px rgba(80, 30, 50, 0.12);
+}
+
+.chapter-image img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.8s ease;
+}
+
+.chapter-image:hover img {
+  transform: scale(1.04);
+}
+
+
+/* Número */
+
+.chapter-number {
+  position: absolute;
+
+  top: 25px;
+
+  left: 25px;
+
+  width: 55px;
+
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 250, 245, 0.9);
 
   color: var(--rose-dark);
 
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
+  font-family: Georgia, serif;
+
+  font-size: 1rem;
 }
 
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 4rem;
-  }
 
-  .hero-text {
-    font-size: 1rem;
-  }
+/* =====================================================
+   TEXTO
+===================================================== */
 
-  .message-card {
-    padding: 50px 25px;
-  }
+.chapter-content {
+  padding: 30px;
 }
-/* =========================
+
+.chapter-label {
+  color: var(--rose);
+
+  font-size: 0.7rem;
+
+  font-weight: bold;
+
+  letter-spacing: 0.3em;
+
+  margin-bottom: 20px;
+}
+
+.chapter-content h3 {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  margin: 0 0 35px;
+
+  color: #3a292f;
+}
+
+.chapter-text {
+  color: #705d63;
+
+  font-size: 1.05rem;
+
+  line-height: 1.95;
+}
+
+.chapter-text em {
+  color: var(--rose-dark);
+
+  font-family: Georgia, serif;
+
+  font-size: 1.1em;
+}
+
+.chapter-text strong {
+  color: var(--rose-dark);
+
+  font-family: Georgia, serif;
+
+  font-size: 1.15em;
+}
+
+
+/* =====================================================
+   FINAL DE HISTORIA
+===================================================== */
+
+.story-ending {
+  max-width: 850px;
+
+  margin: 150px auto 0;
+
+  text-align: center;
+
+  padding: 80px 20px;
+}
+
+.story-ending .heart {
+  font-size: 2rem;
+
+  color: var(--rose);
+
+  margin-bottom: 30px;
+}
+
+.story-ending p {
+  color: #8c7079;
+
+  font-size: 0.8rem;
+
+  letter-spacing: 0.3em;
+
+  text-transform: uppercase;
+}
+
+.story-ending h3 {
+  margin: 25px 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(2rem, 5vw, 4rem);
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  color: var(--rose-dark);
+}
+
+.story-ending span {
+  font-size: 1.5rem;
+}
+
+
+/* =====================================================
    FRASE
-========================= */
+===================================================== */
 
 .quote-section {
   min-height: 55vh;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   padding: 80px 20px;
@@ -245,6 +509,7 @@ body {
   text-align: center;
 
   background: #2d2024;
+
   color: #fff8f8;
 }
 
@@ -260,9 +525,10 @@ body {
   font-style: italic;
 }
 
-/* =========================
+
+/* =====================================================
    GALERÍA
-========================= */
+===================================================== */
 
 .gallery-section {
   padding: 120px 6%;
@@ -308,7 +574,8 @@ body {
   margin: auto;
 }
 
-/* GRID */
+
+/* Grid */
 
 .gallery {
   max-width: 1200px;
@@ -336,6 +603,7 @@ body {
 
 .gallery-item img {
   width: 100%;
+
   height: 100%;
 
   object-fit: cover;
@@ -349,40 +617,49 @@ body {
   transform: scale(1.05);
 }
 
-/* POSICIONES */
+
+/* Posiciones */
 
 .photo-large {
   grid-column: span 7;
+
   height: 650px;
 }
 
 .photo-small {
   grid-column: span 5;
+
   height: 610px;
 }
 
 .photo-tall {
   grid-column: span 5;
+
   height: 550px;
 }
 
 .photo-square {
   grid-column: span 7;
+
   height: 550px;
 }
 
 .photo-wide {
   grid-column: span 12;
+
   height: 600px;
 }
 
-/* TEXTO SOBRE FOTO */
+
+/* Caption */
 
 .photo-caption {
   position: absolute;
 
   left: 0;
+
   right: 0;
+
   bottom: 0;
 
   padding: 70px 30px 25px;
@@ -417,9 +694,181 @@ body {
   font-style: italic;
 }
 
-/* MOBILE */
 
-@media (max-width: 700px) {
+/* =====================================================
+   CARTA FINAL
+===================================================== */
+
+.message {
+  min-height: 70vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 80px 20px;
+
+  background: #f4e3e7;
+}
+
+.message-card {
+  max-width: 750px;
+
+  background: rgba(255, 255, 255, 0.65);
+
+  padding: 70px 60px;
+
+  text-align: center;
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 30px 80px rgba(80, 30, 50, 0.08);
+}
+
+.message-card .quote {
+  font-family: Georgia, serif;
+
+  font-size: 6rem;
+
+  line-height: 0.5;
+
+  color: var(--rose);
+
+  margin: 0 0 40px;
+}
+
+.message-card p:not(.quote) {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(1.3rem, 3vw, 2rem);
+
+  line-height: 1.7;
+
+  color: #4b363d;
+}
+
+.message-card span {
+  display: block;
+
+  margin-top: 35px;
+
+  color: var(--rose-dark);
+
+  font-size: 0.9rem;
+
+  letter-spacing: 0.1em;
+}
+
+
+/* =====================================================
+   ANIMACIONES DE FOTOS
+===================================================== */
+
+/* Fotos de la historia */
+
+.reveal-photo {
+  opacity: 0;
+
+  transform: translateY(45px) scale(0.97);
+
+  transition:
+    opacity 0.9s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-photo.visible {
+  opacity: 1;
+
+  transform: translateY(0) scale(1);
+}
+
+
+/* Fotos de la galería */
+
+.reveal-gallery {
+  opacity: 0;
+
+  transform: scale(0.94);
+
+  transition:
+    opacity 0.9s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-gallery.visible {
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+  .our-story {
+    padding: 90px 20px;
+  }
+
+  .story-heading {
+    margin-bottom: 70px;
+  }
+
+  .story-timeline::before {
+    display: none;
+  }
+
+  .story-chapter {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 35px;
+
+    min-height: auto;
+
+    margin-bottom: 100px;
+  }
+
+  .story-chapter.left .chapter-image,
+  .story-chapter.right .chapter-image {
+    order: 1;
+
+    width: 100%;
+
+    height: 500px;
+  }
+
+  .story-chapter.left .chapter-content,
+  .story-chapter.right .chapter-content {
+    order: 2;
+
+    width: 100%;
+
+    padding: 10px 5px;
+  }
+
+  .chapter-content h3 {
+    font-size: 2.8rem;
+  }
+
+  .chapter-text {
+    font-size: 1rem;
+
+    line-height: 1.8;
+  }
+
+  .story-ending {
+    margin-top: 80px;
+
+    padding: 50px 10px;
+  }
+
   .gallery {
     display: flex;
 
@@ -446,4 +895,34 @@ body {
   .gallery-section {
     padding: 80px 20px;
   }
+
+  .message-card {
+    padding: 50px 25px;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+  }
+}
+
+
+/* =====================================================
+   REDUCIR MOVIMIENTO
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reveal-photo,
+  .reveal-gallery {
+    opacity: 1;
+
+    transform: none;
+
+    transition: none;
+  }
+
 }
